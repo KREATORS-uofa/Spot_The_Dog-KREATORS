@@ -1,12 +1,13 @@
-import os
-import matplotlib.pyplot as plt
-import cv2
-import dlib
-import face_recognition
-import firebase_admin
+import os # for file path
+import requests # for downloading image from firebase storage url
+import cv2 # for image
+import dlib # for predictor and detector
+import face_recognition # for face encoding and recognizing
+import firebase_admin # firebase database link
 from firebase_admin import credentials, initialize_app, storage, firestore
 
-DATA_PATH = './Data/'
+"""Model Load"""
+DATA_PATH = './data/'
 
 face_landmark_detector_file = os.path.join(DATA_PATH, 'dogHeadDetector.dat')
 face_landmark_predictor_file = os.path.join(DATA_PATH, 'landmarkDetector.dat')
@@ -14,6 +15,8 @@ face_landmark_predictor_file = os.path.join(DATA_PATH, 'landmarkDetector.dat')
 detector = dlib.cnn_face_detection_model_v1(face_landmark_detector_file)
 predictor = dlib.shape_predictor(face_landmark_predictor_file)
 
+
+"""Database Data Manipulation"""
 def browse_db(collection_name, documentID, field_name):
     """
         Browse database - 
@@ -76,6 +79,43 @@ def update_db(collection_name, documentID, field_name, data):
         res = ml_collection.document('70Ey6ANXgA51mSP7bSe4').update({field_name:res})
 
 
+def read_url_image(url, name):
+    """
+    Download Image from URL in Database -
+        parameters:
+            url:
+                image URL in Database
+            name (str):
+                document ID
+    """
+    # image url from database
+    r = requests.get(url=url)
+
+    # temporary image save format
+    TEMPORARY_IMAGE_PATH = "./img_temp/"
+    FILE_NAME = name + ".jpg"
+    FILE_PATH = os.path.join(TEMPORARY_IMAGE_PATH, FILE_NAME)
+
+    # save temporary image
+    if r.status_code == 200:
+        print("File Downloaded")
+        with open(FILE_PATH, 'wb') as f:
+            f.write(r.content)
+            print("File Saved")
+    else:
+        raise Exception("Something went wrong")
+    
+    # read image using cv2
+    image = cv2.imread(FILE_PATH)
+    
+    # delete image
+    os.remove(FILE_PATH)
+    print("File Removed")
+    
+    return image
+
+
+"""face_recognition Function Modifications"""
 def _trim_css_to_bounds(css, image_shape):
     return max(css[0], 0), min(css[1], image_shape[1]), min(css[2], image_shape[0]), max(css[3], 0)
 
@@ -92,6 +132,7 @@ def face_locations(img, number_of_times_to_upsample=1):
     return [_trim_css_to_bounds(_rect_to_css(face.rect), img.shape) for face in _raw_face_locations(img, number_of_times_to_upsample)]
 
 
+"""Main Functions"""
 def draw_label(input_image, coordinates, label):
     labeled_image = input_image.copy()
     
@@ -121,4 +162,3 @@ def match_face(face_encoding, registered_face_encodings, registered_face_names, 
     matched_names = [registered_face_names[i] for i in index] # find id numbers from index list
     
     return matched_names
-

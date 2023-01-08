@@ -19,9 +19,9 @@ def reporter(document):
 
 
     """Initialization"""
-    name = document.get('name') # id
-    image_file = document.get('image')
-    input_image = cv2.imread(image_file)
+    name = document.get('did') # id
+    image_url = document.get('image')
+    input_image = spot_the_dog_model.read_url_image(image_url, name)
 
 
     """Detect Dog Face and Obtain face_encoding"""
@@ -60,8 +60,8 @@ def owner(document):
 
     """Initialization"""
     name = document.get('name') # id
-    image_file = document.get('image')
-    input_image = cv2.imread(image_file)
+    image_url = document.get('image')
+    input_image = spot_the_dog_model.read_url_image(image_url, name)
 
 
     """Detect Dog Face and Obtain face_encoding"""
