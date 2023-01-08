@@ -1,4 +1,4 @@
-[logo]
+![Alt text](./SpotTheDogApp/assets/logo.png "Spot-the-Dog-logo")
 
 # SpotTheDog
 * HackED 2023
