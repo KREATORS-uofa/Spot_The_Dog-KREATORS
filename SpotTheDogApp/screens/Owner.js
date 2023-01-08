@@ -26,7 +26,6 @@ const Owner = ({ navigation }) => {
   const [dogs, setDogs] = useState([]);
   const GetData = async () => {
     const dogCol = collection(db, "owner");
-    console.log(dogCol.doc("docId"));
     const q = query(dogCol, where("uid", "==", authentication.currentUser.uid));
     const dogSnapshot = await getDocs(q);
     const dogList = dogSnapshot.docs.map((doc) => doc.data());
