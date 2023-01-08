@@ -53,13 +53,14 @@ const ReporterSubmit = ({ navigation }) => {
           const storage = getStorage();
           getDownloadURL(ref(storage, image.substring(image.length - 35)))
             .then((res) => {
-              const uuid = require("uuid");
-              setDoc(doc(db, "reporter", uuid.v4()), {
+              const uuid = require("uuid").v4();
+              setDoc(doc(db, "reporter", uuid), {
                 address: address,
                 comment: comment,
                 uid: user.uid,
                 timestamp: Date.now(),
                 image: res,
+                did: uuid,
               });
             })
             .then((response) => {
