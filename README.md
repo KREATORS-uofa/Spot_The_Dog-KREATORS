@@ -11,9 +11,7 @@
 ## Our goal is to rescue missing dogs by matching images through face recognition techniques. 
 #### To do so, we employed _machine learning_ in image processing, _established_ a database and storage of dog images, and _built_ an app on which users could upload the images of either wandering or missing dog.
 ---
-<p>
-Countless dog owners have gone through the painful experience of searching for their missing dogs. Extremely laborious it is - to post the pictures of their lost dogs both online and offline. Adding to this challenge, the anxious owners would look for their missing dogs on many social media and platforms, scrolling through the ocean of information. A government-run institution for sheltering lost pets does exist somewhere, but they tend to be slow and their service comes with the possibility of death of beloved pets unless the owners hastily pick them up in time. <b>Spot The Dog</b> is a platform on which both the anxious owners and the caring witnesses of wandering dogs to upload dog images with location information. The application would then match the images of same dogs. This allows <b>everyone</b> to be involved in the effort of rescue and accelerates the searching process.
-</p>
+- Countless dog owners have gone through the painful experience of searching for their missing dogs. _Extremely laborious_ it is - to post the pictures of their lost dogs both online and offline. Adding to this challenge, the anxious owners would look for their missing dogs on many social media and platforms, _scrolling through the ocean of information_. A government-run institution for sheltering lost pets does exist somewhere, but they tend to be slow and their service comes with the _possibility of death of beloved pets_ unless the owners hastily pick them up in time. **Spot The Dog** is a platform on which both the anxious owners and the caring witnesses of wandering dogs to upload dog images with location information. The application would then match the images of same dogs. This allows _everyone_ to be involved in the effort of rescue and accelerates the searching process.
 ---
 # How SpotTheDog Works?
 * **SpotTheDog App** for user inputs
