@@ -60,7 +60,6 @@ const ReporterSubmit = ({ navigation }) => {
                 uid: user.uid,
                 timestamp: Date.now(),
                 image: res,
-                did: uuid,
               });
             })
             .then((response) => {

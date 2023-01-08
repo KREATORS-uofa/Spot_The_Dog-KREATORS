@@ -68,7 +68,6 @@ const OwnerSubmit = ({ navigation }) => {
                 timestamp: Date.now(),
                 matched_names: [],
                 image: res,
-                did: uuid,
               });
             })
             .then(() => {

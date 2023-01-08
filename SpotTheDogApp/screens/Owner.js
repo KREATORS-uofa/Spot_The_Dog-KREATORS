@@ -76,7 +76,13 @@ const Owner = ({ navigation }) => {
                 borderRadius: 30,
               }}
             >
-              <TouchableOpacity onPress={() => navigation.navigate("Matched")}>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate("Matched", {
+                    matchedList: item.matched_names,
+                  })
+                }
+              >
                 <Image
                   style={{ width: 120, height: "100%", borderRadius: 20 }}
                   source={{

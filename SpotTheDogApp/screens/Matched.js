@@ -15,7 +15,9 @@ import { useEffect } from "react";
 import { db } from "../firebase/firebase-config";
 import { collection, getDocs, query, where } from "firebase/firestore/lite";
 
-const Matched = ({ navigation }) => {
+const Matched = ({ route, navigation }) => {
+  const { matchedList } = route.params;
+  console.log(matchedList);
   const [dogs, setDogs] = useState([]);
   const GetData = async () => {
     const dogCol = collection(db, "owner");
