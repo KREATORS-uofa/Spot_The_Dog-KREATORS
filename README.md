@@ -1,4 +1,6 @@
-<img align="center" src="./SpotTheDogApp/assets/logo.png" alt="Spot-the-Dog-logo" width="300" />
+<p align="center">
+  <img src="./SpotTheDogApp/assets/logo.png" alt="Spot-the-Dog-logo" width="300" />
+</p>
 
 # SpotTheDog
 * HackED 2023
