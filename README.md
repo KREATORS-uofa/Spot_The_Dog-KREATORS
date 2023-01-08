@@ -71,7 +71,7 @@ The documentations of employed ML packages are listed below.
 
 ## Team Members:
 * [Min Joh](https://github.com/CavityKingu) (ML developer)
-* [Dohyun Kim](https://github.com/kdhminime) (Front-end developer)
+* [Dohyun Kim](https://github.com/kdhminime) (Full-stack developer)
 * [Yongbin Kim](https://github.com/yongbin4) (Back-end developer)
 * [Jamie Lee](https://github.com/jamielee0629) (ML developer)
 * [Taekwan Yoon](https://github.com/taekwan-yoon) (Front-end developer)
