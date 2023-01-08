@@ -20,9 +20,6 @@
 
 ## SpotTheDog App
 
-## App Preview
-[app preview]
-
 ## Machine Learning (ML) Model, <code>spot_the_dog_model.py</code>
 <p>
 The major components of our ML model are <code>opencv</code>, <code>dlib</code>, and <code>face_recognition</code> packages, which are essential in detecting and recognizing faces. We combined and modified their functionalities to create our own model
