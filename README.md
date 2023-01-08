@@ -2,16 +2,18 @@
   <img src="./SpotTheDogApp/assets/logo.png" alt="Spot-the-Dog-logo" width="300" />
 </p>
 
-# SpotTheDog
-* HackED 2023
-* by University of Alberta Computer Engineering Club
+# Spot The Dog App
+###### A project written at
+#### HackED 2023,
+###### a 24-hour hackathon hosted by
+#### University of Alberta Computer Engineering Club
 
-## Our goal was to help searching missing dogs using dog face recognition technique.
-
+## Our goal is to rescue missing dogs by matching images through face recognition techniques. 
+#### To do so, we employed _machine learning_ in image processing, _established_ a database and storage of dog images, and _built_ an app on which users could upload the images of either wandering or missing dog.
+---
 <p>
-Many of dog owners, perhaps, struggled from searching their missing dogs. It is sadly laborious to post their lost dog  pictures, and to search their dogs without any aid from an institution or anonymous. However, <b>SpotTheDog</b>, now,  helps finding your dogs! It enables the dog owners to track captured images of missing dogs with various locations. It provides the easier access for the reporters to capture stray dogs from their phones. The images of missing dogs are matched with the images of reported dogs using <i>dog face recognition</i>.
+Countless dog owners have gone through the painful experience of searching for their missing dogs. Extremely laborious it is - to post the pictures of their lost dogs both online and offline. Adding to this challenge, the anxious owners would look for their missing dogs on many social media and platforms, scrolling through the ocean of information. A government-run institution for sheltering lost pets does exist somewhere, but they tend to be slow and their service comes with the possibility of death of beloved pets unless the owners hastily pick them up in time. <b>Spot The Dog</b> is a platform on which both the anxious owners and the caring witnesses of wandering dogs to upload dog images with location information. The application would then match the images of same dogs. This allows <b>everyone</b> to be involved in the effort of rescue and accelerates the searching process.
 </p>
-
 ---
 # How SpotTheDog Works?
 * **SpotTheDog App** for user inputs
