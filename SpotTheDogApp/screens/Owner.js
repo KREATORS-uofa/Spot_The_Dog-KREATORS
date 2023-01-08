@@ -79,7 +79,7 @@ const Owner = ({ navigation }) => {
               <TouchableOpacity
                 onPress={() =>
                   navigation.navigate("Matched", {
-                    matchedList: item.matched_names,
+                    list: item.matched_names,
                   })
                 }
               >

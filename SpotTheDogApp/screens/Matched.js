@@ -16,12 +16,12 @@ import { db } from "../firebase/firebase-config";
 import { collection, getDocs, query, where } from "firebase/firestore/lite";
 
 const Matched = ({ route, navigation }) => {
-  const { matchedList } = route.params;
-  console.log(matchedList);
   const [dogs, setDogs] = useState([]);
+
+  const { list } = route.params;
   const GetData = async () => {
-    const dogCol = collection(db, "owner");
-    const q = query(dogCol, where("uid", "==", authentication.currentUser.uid));
+    const dogCol = collection(db, "reporter");
+    const q = query(dogCol, where("did", "in", list));
     const dogSnapshot = await getDocs(q);
     const dogList = dogSnapshot.docs.map((doc) => doc.data());
     setDogs(dogList);
