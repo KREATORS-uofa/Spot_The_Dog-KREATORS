@@ -70,8 +70,8 @@ The documentations of employed ML packages are listed below.
     - Quickly familiarized ourselves with new techniques / coding skills.
 
 ## Team Members:
-* [Min Joh](https://github.com/CavityKingu)
-* [Dohyun Kim](https://github.com/kdhminime)
-* [Yongbin Kim](https://github.com/yongbin4) 
-* [Jamie Lee](https://github.com/jamielee0629)
-* [Taekwan Yoon](https://github.com/taekwan-yoon)
+* [Min Joh](https://github.com/CavityKingu) (ML developer)
+* [Dohyun Kim](https://github.com/kdhminime) (Front-end developer)
+* [Yongbin Kim](https://github.com/yongbin4) (Back-end developer)
+* [Jamie Lee](https://github.com/jamielee0629) (ML developer)
+* [Taekwan Yoon](https://github.com/taekwan-yoon) (Front-end developer)
