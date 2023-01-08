@@ -14,14 +14,16 @@ face_landmark_predictor_file = os.path.join(DATA_PATH, 'landmarkDetector.dat')
 detector = dlib.cnn_face_detection_model_v1(face_landmark_detector_file)
 predictor = dlib.shape_predictor(face_landmark_predictor_file)
 
-def browse_db(field_name):
+def browse_db(collection_name, documentID, field_name):
     """
         Browse database - 
-            parameter: field_name (str): 
+            parameter: 
+                collection_name (str):
+                    collection that the function should get the value of it
+                field_name (str): 
                         field name that the function should return the value of it
             return: res (list):
                     list that field_name contain from database
-
     """
     # key_path = os.path.join(DATA_PATH, 'spot-the-dog-e68bd-f5c41104fb22.json')
     # cred = credentials.Certificate(key_path)  
@@ -29,9 +31,12 @@ def browse_db(field_name):
 
     db = firestore.client()     # connecting to firestore 
 
-    ml_collection = db.collection('mlCollection')
-
-    res = ml_collection.document('70Ey6ANXgA51mSP7bSe4').get().to_dict()[field_name]
+    if collection_name == "mlCollection" and documentID == None:
+        ml_collection = db.collection(collection_name)
+        res = ml_collection.document('70Ey6ANXgA51mSP7bSe4').get().to_dict()[field_name]
+    elif collection_name != "mlCollection":
+        collection = db.collection(collection_name).orderBy("timestamp", "desc").limit(1).get()
+        res = collection.document(documentID).to_dict()[field_name]
     return res
 
 
