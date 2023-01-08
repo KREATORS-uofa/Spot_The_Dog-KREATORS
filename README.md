@@ -64,7 +64,7 @@ The documentations of employed ML packages are listed below.
     - Our project _raises awareness_ on lost or stray dogs.
     - It would accelerate the searching process of missing dogs.
     - It decentralizes the tasks involved in finding and maintaining missing dogs.
-- ** Execution** and **Polishness**
+- **Execution** and **Polishness**
     - Completed the _working_ project within 24 hours.
 - **Complexity**
     - Quickly familiarized ourselves with new techniques / coding skills.
