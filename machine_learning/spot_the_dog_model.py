@@ -66,7 +66,7 @@ def update_db(collection_name, documentID, field_name, data):
         reporter_collection = db.collection('reporter')
 
         if field_name == "face_encoding" or field_name == "matched_names":
-            res = reporter_collection.document(documentID).get().to_dict()[fieldname]
+            res = reporter_collection.document(documentID).get().to_dict()[field_name]
             res.append(data)
 
         res = reporter_collection.document(documentID).update({field_name:res})
@@ -81,12 +81,7 @@ def update_db(collection_name, documentID, field_name, data):
 
 def read_url_image(url, name):
     """
-    Download Image from URL in Database -
-        parameters:
-            url:
-                image URL in Database
-            name (str):
-                document ID
+    This function obtains a image URL from database to read the image data.
     """
     # image url from database
     r = requests.get(url=url)
@@ -134,6 +129,9 @@ def face_locations(img, number_of_times_to_upsample=1):
 
 """Main Functions"""
 def draw_label(input_image, coordinates, label):
+    """
+    This function draws a green box where a dog face is located.
+    """
     labeled_image = input_image.copy()
     
     (top, right, bottom, left) = coordinates
@@ -144,6 +142,9 @@ def draw_label(input_image, coordinates, label):
 
 
 def detect_dog_face(input_image):
+    """
+    This function returns coordinates of a box where a dog face is located.
+    """
     detected_image = input_image.copy() # generate safe copy
     
     gray_image = cv2.cvtColor(detected_image, cv2.COLOR_BGR2GRAY) # convert color channel from BGR to gray scale
@@ -153,6 +154,9 @@ def detect_dog_face(input_image):
 
 
 def match_face(face_encoding, registered_face_encodings, registered_face_names, tolerance=0.4):
+    """
+    This function returns a list of matched DIDs from reported dogs.
+    """
     matched_names = [] # initialization
     
     matches = face_recognition.compare_faces(registered_face_encodings, face_encoding, tolerance) # list of true or false

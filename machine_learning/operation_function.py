@@ -10,7 +10,7 @@ def reporter(document):
         parameters:
             document (dict):
                 meta data followed by {
-                    'name': id_number,
+                    'did': id_number,
                     'image': image_uri
                     }
     
@@ -48,7 +48,7 @@ def owner(document):
         parameters:
             document (dict):
                 meta data followed by {
-                    'name': id_number,
+                    'did': id_number,
                     'image': image_uri,
                     'face_encoding': np.array,
                     'matched_names': string_list
@@ -59,7 +59,7 @@ def owner(document):
 
 
     """Initialization"""
-    name = document.get('name') # id
+    name = document.get('did') # id
     image_url = document.get('image')
     input_image = spot_the_dog_model.read_url_image(image_url, name)
 
@@ -91,5 +91,5 @@ def owner(document):
 
 
     """Update ownerCollection"""
-    spot_the_dog_model.update_db("owner", document.get("name"), "face_encoding", face_encoding)
-    spot_the_dog_model.update_db("owner", document.get("name"), "matched_names", matched_names)
+    spot_the_dog_model.update_db("owner", document.get("did"), "face_encoding", face_encoding)
+    spot_the_dog_model.update_db("owner", document.get("did"), "matched_names", matched_names)
