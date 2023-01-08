@@ -1,4 +1,4 @@
-![Alt text](./SpotTheDogApp/assets/logo.png =100x)
+<img src="./SpotTheDogApp/assets/logo.png" alt="Spot-the-Dog-logo" width="100" />
 
 # SpotTheDog
 * HackED 2023
