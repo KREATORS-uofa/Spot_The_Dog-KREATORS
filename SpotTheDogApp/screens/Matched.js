@@ -10,23 +10,15 @@ import {
   Image,
 } from "react-native";
 import { authentication } from "../firebase/firebase-config";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Octicons } from "@expo/vector-icons";
 import { useEffect } from "react";
 import { db } from "../firebase/firebase-config";
-import {
-  collection,
-  documentId,
-  getDocs,
-  query,
-  where,
-} from "firebase/firestore/lite";
+import { collection, getDocs, query, where } from "firebase/firestore/lite";
 
-const Owner = ({ navigation }) => {
+const Matched = ({ navigation }) => {
   const [dogs, setDogs] = useState([]);
   const GetData = async () => {
     const dogCol = collection(db, "owner");
-    console.log(dogCol.doc("docId"));
     const q = query(dogCol, where("uid", "==", authentication.currentUser.uid));
     const dogSnapshot = await getDocs(q);
     const dogList = dogSnapshot.docs.map((doc) => doc.data());
@@ -45,26 +37,18 @@ const Owner = ({ navigation }) => {
         style={styles.image}
         resizeMode="cover"
       >
-        <TouchableOpacity
+        <Text
           style={{
-            alignContent: "center",
-            justifyContent: "center",
-            flex: 0.4,
+            marginTop: 60,
+            alignSelf: "center",
+            flex: 0.2,
+            fontFamily: "Dongle_400Regular",
+            fontSize: 50,
           }}
-          onPress={() => navigation.navigate("OwnerSubmit")}
         >
-          <View style={styles.button}>
-            <Octicons
-              style={{ position: "absolute", marginLeft: 25 }}
-              name="report"
-              size={26}
-              color="#F7F7F7"
-            />
-            <Text style={styles.text}>Report</Text>
-            <Text style={styles.subText}>Report a missing dog</Text>
-          </View>
-        </TouchableOpacity>
-        <ScrollView style={{ flex: 1 }}>
+          Matched List
+        </Text>
+        <ScrollView style={{ flex: 1, marginTop: -50 }}>
           {dogs.map((item, index) => (
             <View
               key={index}
@@ -77,7 +61,7 @@ const Owner = ({ navigation }) => {
                 borderRadius: 30,
               }}
             >
-              <TouchableOpacity onPress={() => navigation.navigate("Matched")}>
+              <TouchableOpacity>
                 <Image
                   style={{ width: 120, height: "100%", borderRadius: 20 }}
                   source={{
@@ -148,4 +132,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Owner;
+export default Matched;

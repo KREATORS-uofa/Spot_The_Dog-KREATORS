@@ -58,23 +58,24 @@ const OwnerSubmit = ({ navigation }) => {
           const storage = getStorage();
           getDownloadURL(ref(storage, image.substring(image.length - 35)))
             .then((res) => {
-              const uuid = require("uuid");
-              setDoc(doc(db, "owner", uuid.v4()), {
+              const uuid = require("uuid").v4();
+              setDoc(doc(db, "owner", uuid), {
                 address: address,
                 comment: comment,
                 name: name,
                 uid: user.uid,
-                face_encoding: [""],
+                face_encoding: [],
                 timestamp: Date.now(),
-                matched_names: [""],
+                matched_names: [],
                 image: res,
+                did: uuid,
               });
             })
             .then(() => {
-              instance.get("/list");
+              // instance.get("/list");
             })
             .then((response) => {
-              console.log(response);
+              // console.log(response);
               navigation.goBack();
             });
         });

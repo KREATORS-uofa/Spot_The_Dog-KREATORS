@@ -17,6 +17,7 @@ import Owner from "./Owner";
 import OwnerSubmit from "./OwnerSubmit";
 import Reporter from "./Reporter";
 import ReporterSubmit from "./ReporterSubmit";
+import Matched from "./Matched";
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +47,11 @@ const Home = () => {
       <Stack.Screen
         name="ReporterSubmit"
         component={ReporterSubmit}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Matched"
+        component={Matched}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
