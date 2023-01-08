@@ -17,8 +17,8 @@ import { collection, getDocs, query, where } from "firebase/firestore/lite";
 
 const Matched = ({ route, navigation }) => {
   const [dogs, setDogs] = useState([]);
-
   const { list } = route.params;
+
   const GetData = async () => {
     const dogCol = collection(db, "reporter");
     const q = query(dogCol, where("did", "in", list));
@@ -51,50 +51,56 @@ const Matched = ({ route, navigation }) => {
           Matched List
         </Text>
         <ScrollView style={{ flex: 1, marginTop: -50 }}>
-          {dogs.map((item, index) => (
-            <View
-              key={index}
-              style={{
-                backgroundColor: "white",
-                alignSelf: "center",
-                width: "80%",
-                height: 130,
-                marginBottom: 40,
-                borderRadius: 30,
-              }}
-            >
-              <TouchableOpacity>
-                <Image
-                  style={{ width: 120, height: "100%", borderRadius: 20 }}
-                  source={{
-                    uri: item.image,
-                  }}
-                />
-                <Text
-                  style={{
-                    position: "absolute",
-                    fontFamily: "Dongle_400Regular",
-                    left: 130,
-                    top: 40,
-                    fontSize: 30,
-                  }}
-                >
-                  {item.address.substring(0, 22)}
-                </Text>
-                <Text
-                  style={{
-                    position: "absolute",
-                    fontFamily: "Dongle_400Regular",
-                    left: 130,
-                    top: 90,
-                    fontSize: 20,
-                  }}
-                >
-                  {Date(item.timestamp).substring(0, 25)}
-                </Text>
-              </TouchableOpacity>
-            </View>
-          ))}
+          {list == [] ? (
+            <Text style={{ flex: 1 }}>
+              Unfortunately there is no matched dogs, come back later!
+            </Text>
+          ) : (
+            dogs.map((item, index) => (
+              <View
+                key={index}
+                style={{
+                  backgroundColor: "white",
+                  alignSelf: "center",
+                  width: "80%",
+                  height: 130,
+                  marginBottom: 40,
+                  borderRadius: 30,
+                }}
+              >
+                <TouchableOpacity>
+                  <Image
+                    style={{ width: 120, height: "100%", borderRadius: 20 }}
+                    source={{
+                      uri: item.image,
+                    }}
+                  />
+                  <Text
+                    style={{
+                      position: "absolute",
+                      fontFamily: "Dongle_400Regular",
+                      left: 130,
+                      top: 40,
+                      fontSize: 30,
+                    }}
+                  >
+                    {item.address.substring(0, 22)}
+                  </Text>
+                  <Text
+                    style={{
+                      position: "absolute",
+                      fontFamily: "Dongle_400Regular",
+                      left: 130,
+                      top: 90,
+                      fontSize: 20,
+                    }}
+                  >
+                    {Date(item.timestamp).substring(0, 25)}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            ))
+          )}
         </ScrollView>
       </ImageBackground>
     </View>
