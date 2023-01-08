@@ -46,7 +46,7 @@ As shown in the image above, it detects the face well with facial landmarks such
 </p>
 
 <p>
-The first image shows the registered dog with its name. Its face encoding is stored in the database. This data is used to recognize the face as shown in the second image. It compares the missing dog's face encoding with a list of reported dogs' face encodings. As the result, the matched faces with certain similarities are tagged to the missing dog. When browsing missing dogs, the similar dogs are matched and tagged. <br><br>
+The first figure is the image of a reported dog supplied by a witness and uploaded to the app. Its face encoding is stored in the dtabase, and the data will be used to recognize incoming images of missing dogs, for example, shown in the second image. It compares the missing dog's face encoding with a list of reported dogs' face encodings. As a result, the matched faces with certain similarities are tagged to the missing dog. When browsing missing dogs, the similar dogs are matched and tagged. <br><br>
 
 The documentations of employed ML packages are listed below.
 </p>
@@ -70,8 +70,8 @@ The documentations of employed ML packages are listed below.
     - Quickly familiarized ourselves with new techniques / coding skills.
 
 ## Team Members:
-* [Min Joh](https://github.com/CavityKingu)
-* [Dohyun Kim](https://github.com/kdhminime)
-* [Yongbin Kim](https://github.com/yongbin4) 
-* [Jamie Lee](https://github.com/jamielee0629)
-* [Taekwan Yoon](https://github.com/taekwan-yoon)
+* [Min Joh](https://github.com/CavityKingu) (ML developer)
+* [Dohyun Kim](https://github.com/kdhminime) (Full-stack developer)
+* [Yongbin Kim](https://github.com/yongbin4) (Back-end developer)
+* [Jamie Lee](https://github.com/jamielee0629) (ML developer)
+* [Taekwan Yoon](https://github.com/taekwan-yoon) (Front-end developer)
