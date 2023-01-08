@@ -8,6 +8,7 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
+  ScrollView,
 } from "react-native";
 import { Octicons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
@@ -58,54 +59,84 @@ const Browse = () => {
   // list component----------------------------------------------
 
   const BrowseList = () => {
-    // const renderItem = ({ item }) => <Item address={item.address} />;
-    const displayAddress = ({ item }) => (
-      <View style={styles.item}>
-        <View style={styles.imageContainer}>
-          <Image style={styles.dogImage} source={{ uri: item.image }} />
-        </View>
-        <Text style={styles.name}>{item.address}</Text>
-      </View>
-    );
-
-    const headerComponent = () => {
-      return <Text style={styles.listHeadline}>Reported Dogs</Text>;
-    };
-
-    const itemSeparator = () => {
-      return <View style={styles.separator} />;
-    };
-
     return (
-      <SafeAreaView style={{ flex: 1 }}>
-        <FlatList
-          ListHeaderComponent={headerComponent}
-          ListHeaderComponentStyle={styles.listHeader}
-          style={styles.content}
-          data={dogs}
-          renderItem={displayAddress}
-          ItemSeparatorComponent={itemSeparator}
-          ListEmptyComponent={<Text>Come back later for more dogs!</Text>}
-        />
-        <View
+      <ImageBackground
+        source={require("../assets/images/wood_background.jpeg")}
+        style={styles.background}
+        resizeMode="cover"
+      >
+        <Text
+          style={{
+            flex: 0.2,
+            alignSelf: "center",
+            fontSize: 50,
+            marginTop: 80,
+            fontFamily: "Dongle_400Regular",
+          }}
+        >
+          Spot<Text style={{ color: "#6D9886" }}>The</Text>Dog
+        </Text>
+        <ScrollView style={{ flex: 0.8 }}>
+          {dogs.map((item, index) => (
+            <View
+              key={index}
+              style={{
+                backgroundColor: "white",
+                alignSelf: "center",
+                width: "80%",
+                height: "80%",
+                marginBottom: 80,
+                borderRadius: 30,
+              }}
+            >
+              <TouchableOpacity>
+                <Image
+                  style={{ width: "35%", height: "100%", borderRadius: 20 }}
+                  source={{
+                    uri: item.image,
+                  }}
+                />
+                <Text
+                  style={{
+                    position: "absolute",
+                    fontFamily: "Dongle_400Regular",
+                    left: 130,
+                    top: 40,
+                    fontSize: 30,
+                  }}
+                >
+                  {item.address}
+                </Text>
+                <Text
+                  style={{
+                    position: "absolute",
+                    fontFamily: "Dongle_400Regular",
+                    left: 130,
+                    top: 90,
+                    fontSize: 20,
+                  }}
+                >
+                  {Date(item.timestamp).substring(0, 25)}
+                </Text>
+              </TouchableOpacity>
+            </View>
+          ))}
+        </ScrollView>
+
+        <TouchableOpacity
           style={{
             position: "absolute",
             zIndex: 1,
             right: 20,
             bottom: 20,
           }}
+          onPress={listButtonPressed}
         >
-          <TouchableOpacity onPress={listButtonPressed}>
-            <View style={styles.buttonMap}>
-              <MaterialCommunityIcons
-                name="map-marker-radius"
-                size={38}
-                color="#F7F7F7"
-              />
-            </View>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
+          <View style={styles.buttonList}>
+            <Ionicons name="reorder-three-outline" size={50} color="#F7F7F7" />
+          </View>
+        </TouchableOpacity>
+      </ImageBackground>
     );
   };
 
@@ -142,8 +173,12 @@ const Browse = () => {
               <Callout tooltip>
                 <View>
                   <View style={styles.bubble}>
-                    <Text style={styles.name}>{item.title}</Text>
-                    <Text>{item.description}</Text>
+                    <Text style={styles.name}>{item.address}</Text>
+                    <Text
+                      style={{ fontFamily: "Dongle_400Regular", fontSize: 20 }}
+                    >
+                      {Date(item.timestamp).substring(0, 15)}
+                    </Text>
                     <Image
                       style={styles.image}
                       source={{
@@ -198,7 +233,11 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: -0.5,
   },
-
+  background: {
+    flex: 1,
+    alignContent: "center",
+    justifyContent: "center",
+  },
   bubble: {
     // change style!
     flexDirection: "column",
@@ -234,13 +273,15 @@ const styles = StyleSheet.create({
   // map component
   name: {
     // change style!
-    fontSize: 12,
-    marginBottom: 5,
+    fontFamily: "Dongle_400Regular",
+    fontSize: 20,
+    lineHeight: 20,
   },
   image: {
     // change style!
     width: 120,
-    height: 80,
+    height: 120,
+    borderRadius: 20,
   },
   buttonList: {
     backgroundColor: "#6D9886",

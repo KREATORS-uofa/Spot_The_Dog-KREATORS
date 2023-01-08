@@ -71,10 +71,10 @@ const OwnerSubmit = ({ navigation }) => {
               });
             })
             .then(() => {
-              instance.get("/list");
+              // instance.get("/list");
             })
             .then((response) => {
-              console.log(response);
+              // console.log(response);
               navigation.goBack();
             });
         });
