@@ -36,10 +36,14 @@ As shown in the image above, it detects the face well with facial landmarks such
 </p>
 
 ### Registered Face
-![image](https://user-images.githubusercontent.com/106040183/211202627-0d77298e-f28c-418c-a623-5b0fbc864f1d.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/106040183/211202627-0d77298e-f28c-418c-a623-5b0fbc864f1d.png" alt="registered-dog-face" width="300" />
+</p>
 
 ### Unmatched Face
-![image](https://user-images.githubusercontent.com/106040183/211202635-382c98a2-b0d2-42be-b042-d43e401bfb7d.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/106040183/211202635-382c98a2-b0d2-42be-b042-d43e401bfb7d.png" alt="unmatched-dog-face" width="300" />
+</p>
 
 <p>
 The first image shows the registered dog with its name. Its face encoding is stored in the database. This data is used to recognize the face as shown in the second image. It compares the missing dog's face encoding with a list of reported dogs' face encodings. As the result, the matched faces with certain similarities are tagged to the missing dog. When browsing missing dogs, the similar dogs are matched and tagged. <br><br>
