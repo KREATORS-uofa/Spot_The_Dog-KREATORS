@@ -44,7 +44,16 @@ As shown in the image above, it detects the face well with facial landmarks such
 
 <p>
 The first figure is the image of a reported dog supplied by a witness and uploaded to the app. Its face encoding is stored in the dtabase, and the data will be used to recognize incoming images of missing dogs, for example, shown in the second image. It compares the missing dog's face encoding with a list of reported dogs' face encodings. As a result, the matched faces with certain similarities are tagged to the missing dog. When browsing missing dogs, the similar dogs are matched and tagged. <br><br>
+</p>
 
+### App Preview
+<p display=flex>
+  <img src="./SpotTheDogApp/assets/IMG_3061.PNG" alt="App-preview" width="200">
+  <img src="./SpotTheDogApp/assets/IMG_3062.PNG" alt="App-preview" width="200">
+  <img src="./SpotTheDogApp/assets/IMG_3063.PNG" alt="App-preview" width="200">
+</p>
+
+<p>
 The documentations of employed ML packages are listed below.
 </p>
 
