@@ -47,7 +47,7 @@ The first figure is the image of a reported dog supplied by a witness and upload
 </p>
 
 ### App Preview
-<p display=flex justify-content="center">
+<p display=flex margin="auto">
   <img src="./SpotTheDogApp/assets/IMG_3061.PNG" alt="App-preview" width="200">
   <img src="./SpotTheDogApp/assets/IMG_3062.PNG" alt="App-preview" width="200">
   <img src="./SpotTheDogApp/assets/IMG_3063.PNG" alt="App-preview" width="200">
